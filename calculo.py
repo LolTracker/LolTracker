@@ -1,5 +1,10 @@
 import openai
+import pyfiglet
+from termcolor import colored
+
 openai.api_key = "API-key-openai"
+
+display_LolTracker()
 
 def prompt(pergunta): # função que faz o prompt para perguntar ao GPT
     model_engine = "text-davinci-002"
@@ -17,24 +22,26 @@ def prompt(pergunta): # função que faz o prompt para perguntar ao GPT
     return message
 
 # Tela inicial com as opções
-tipopartida = input("Bem vindo ao...\n
-  _           _ _______             _             
- | |         | |__   __|           | |            
- | |     ___ | |  | |_ __ __ _  ___| | _____ _ __ 
- | |    / _ \| |  | | '__/ _` |/ __| |/ / _ \ '__|
- | |___| (_) | |  | | | | (_| | (__|   <  __/ |   
- |______\___/|_|  |_|_|  \__,_|\___|_|\_\___|_|   
-                                                  
-                                                    \nOnde ninguém aposta no escuro.\n Escolha uma opção:\n1. Melhor de 3\n 2. Melhor de 5\n3.  Partida unica ")
+# Função para exibir o texto RedMoon em ASCII art
+def display_LolTracker():
+    Lol_ascii_art = pyfiglet.figlet_format("Lol", font="epic")
+    Tracker_ascii_art = pyfiglet.figlet_format("Tracker", font="epic")
+    red_colored = colored(Lol_ascii_art, 'red')
+    combined_art = ""
+    for Lol_line, Tracker_line in zip(Lol_colored.split('\n'), Tracker_ascii_art.split('\n')):
+        combined_art += Lol_line + Tracker_line + "\n"
+    print(combined_art)
+
+tipopartida = input("Bem vindo ao LolTracker!\nOnde ninguém aposta no escuro...\n Escolha uma opção:\n1. Melhor de 3\n 2. Melhor de 5\n3.  Partida unica ")
                                                     
 if (tipopartida = 1){
   md = ("melhor de 3")
 }
-if (tipopartida = 2){
+elif (tipopartida = 2){
   md = ("melhor de 5")
 }
-if (tipopartida = 3){
-  md = ("partida única")
+elif (tipopartida = 3){
+  md = ("partida unica")
 }
 
 timex = input("Digite o primeiro time: ")
