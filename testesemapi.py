@@ -1,3 +1,5 @@
+# Code by LolTracker devCrew
+
 import openai
 import pyfiglet
 from termcolor import colored
